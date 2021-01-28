@@ -230,7 +230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660509142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 0}
+  m_LocalPosition: {x: 11.3, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 12.4, z: 1}
   m_Children: []
   m_Father: {fileID: 1572430709}
@@ -246,7 +246,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -274,6 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9c85e7853b0ec4091ca71dd129a7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2092003036}
+  gameManager: {fileID: 1494768428}
 --- !u!1 &674487921
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9d3e076a69ad34ebc1b535f89d7c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xInitialForce: 50
+  yInitialForce: 15
 --- !u!58 &674487923
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -315,7 +319,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 674487921}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: e622b9ec15d85744e9bfa3282fb4fe4b, type: 2}
+  m_Material: {fileID: 6200000, guid: a50b4bbdda109084aaf95e202f41642a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -421,7 +425,7 @@ GameObject:
   - component: {fileID: 721457555}
   - component: {fileID: 721457554}
   m_Layer: 0
-  m_Name: Paddle_Two
+  m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -439,10 +443,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c78ab6f0af17749b41ff868ab83092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveUp: 273
-  moveDown: 274
+  upButton: 273
+  downButton: 274
   speed: 10
-  boundY: 2.25
+  yBoundary: 9
 --- !u!50 &721457555
 Rigidbody2D:
   serializedVersion: 4
@@ -579,7 +583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815766008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.7, z: 0}
+  m_LocalPosition: {x: 0, y: -6.3, z: 0}
   m_LocalScale: {x: 22, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1572430709}
@@ -717,7 +721,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071976156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.7, z: 0}
+  m_LocalPosition: {x: 0, y: 6.3, z: 0}
   m_LocalScale: {x: 22, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1572430709}
@@ -760,7 +764,7 @@ GameObject:
   - component: {fileID: 1494768429}
   - component: {fileID: 1494768428}
   m_Layer: 0
-  m_Name: HUD
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,6 +782,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f06dbf693de9d46a45d50c232297dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 2092003036}
+  player2: {fileID: 721457554}
+  ball: {fileID: 674487922}
+  maxScore: 10
   layout: {fileID: 11400000, guid: 4472dee75c3b88747a236f3839f578dd, type: 2}
 --- !u!4 &1494768429
 Transform:
@@ -853,7 +861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053241589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 0}
+  m_LocalPosition: {x: -11.3, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 12.4, z: 1}
   m_Children: []
   m_Father: {fileID: 1572430709}
@@ -869,7 +877,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -897,6 +905,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9c85e7853b0ec4091ca71dd129a7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 721457554}
+  gameManager: {fileID: 1494768428}
 --- !u!1 &2092003035
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +921,7 @@ GameObject:
   - component: {fileID: 2092003037}
   - component: {fileID: 2092003036}
   m_Layer: 0
-  m_Name: Paddle_One
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -929,10 +939,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c78ab6f0af17749b41ff868ab83092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveUp: 119
-  moveDown: 115
+  upButton: 119
+  downButton: 115
   speed: 10
-  boundY: 2.25
+  yBoundary: 9
 --- !u!50 &2092003037
 Rigidbody2D:
   serializedVersion: 4

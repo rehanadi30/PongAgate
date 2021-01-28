@@ -4,57 +4,60 @@ using UnityEngine;
 
 public class BallControl : MonoBehaviour
 {
-    private Rigidbody2D rb2d;
+    // Rigidbody 2D bola
+    private Rigidbody2D rigidBody2D;
+ 
+    // Besarnya gaya awal yang diberikan untuk mendorong bola
+    public float xInitialForce;
+    public float yInitialForce;
 
-    void GoBall()
+    void PushBall()
     {
-        float rand = Random.Range(0, 2);
-        if(rand < 1)
+        // Tentukan nilai komponen y dari gaya dorong antara -yInitialForce dan yInitialForce
+        float yRandomInitialForce = Random.Range(-yInitialForce, yInitialForce);
+
+        // Tentukan nilai acak antara 0 (inklusif) dan 2 (eksklusif)
+        float randomDirection = Random.Range(0, 2);
+
+        // Jika nilainya di bawah 1, bola bergerak ke kiri. 
+        // Jika tidak, bola bergerak ke kanan.
+        if (randomDirection < 1.0f)
         {
-            rb2d.AddForce(new Vector2(20, -15));
-        } 
-        else 
+            // Gunakan gaya untuk menggerakkan bola ini.
+            rigidBody2D.AddForce(new Vector2(-xInitialForce, yRandomInitialForce));
+        }
+        else
         {
-            rb2d.AddForce(new Vector2(-20, -15));
+            rigidBody2D.AddForce(new Vector2(xInitialForce, yRandomInitialForce));
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        Invoke("GoBall", 2);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        rigidBody2D = GetComponent<Rigidbody2D>();
+ 
+        // Mulai game
+        RestartGame();
     }
 
     // ResetBall dipanggil setiap game dimulai
     void ResetBall()
     {
-        rb2d.velocity = Vector2.zero;
+        // Reset posisi menjadi (0,0)
         transform.position = Vector2.zero;
+ 
+        // Reset kecepatan menjadi (0,0)
+        rigidBody2D.velocity = Vector2.zero;
     }
 
     // Restart dipanggil setiap restart dipencet
     void RestartGame()
     {
+        // Kembalikan bola ke posisi semula
         ResetBall();
-        Invoke("GoBall", 1);
-    }
-
-    // OnCollision dipanggil setiap benturan terjadi
-    void OnCollisionEnter2D (Collision2D coll) 
-    {
-        if(coll.collider.CompareTag("Player"))
-        {
-            Vector2 vel;
-            vel.x = rb2d.velocity.x;
-            vel.y = (rb2d.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
-            rb2d.velocity = vel;
-        }
+ 
+        // Setelah 2 detik, berikan gaya ke bola
+        Invoke("PushBall", 2);
     }
 }

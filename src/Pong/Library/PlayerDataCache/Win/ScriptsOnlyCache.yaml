@@ -3,8 +3,8 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - BallControl
     - GameManager
-    - PlayerControls
-    - SideWalls
+    - PlayerControl
+    - SideWall
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
@@ -46,15 +46,15 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 580}
+      Script: {instanceID: 584}
     - Class: 114
-      Script: {instanceID: 18634}
+      Script: {instanceID: 12636}
     - Class: 114
-      Script: {instanceID: 19086}
+      Script: {instanceID: 12688}
     - Class: 114
-      Script: {instanceID: 19832}
+      Script: {instanceID: 12840}
     - Class: 114
-      Script: {instanceID: 21536}
+      Script: {instanceID: 14432}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -316,10 +316,22 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
+      Hash: 28fa7c399a0a1ff6dcd558bbd6e4b66d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerControl
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 7af8fdce79e6302b1317b5ecfb967b53
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BallControl
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -332,6 +344,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 8820dd2af509cc3e744740af678cb713
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SideWall
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -544,6 +562,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: f9bcab279edf6717354f943fb1637f5f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManager
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -554,30 +578,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 44be3ab8d34518ab76a55dbd4efa0794
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerControls
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BallControl
-  - hash:
-      serializedVersion: 2
-      Hash: f2adf249e2ef8efceee3ce5258842c03
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameManager
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SideWalls
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
